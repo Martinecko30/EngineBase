@@ -8,6 +8,8 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>EngineBase</Title>
         <Authors>Martinecko30</Authors>
+        <RepositoryUrl>https://github.com/Martinecko30/EngineBase</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>

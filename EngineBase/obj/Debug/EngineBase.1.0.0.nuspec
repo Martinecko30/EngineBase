@@ -6,7 +6,7 @@
     <title>EngineBase</title>
     <authors>Martinecko30</authors>
     <description>Package Description</description>
-    <repository type="git" commit="53a3d3f54c2782b774294d14dc1f74d4217f4045" />
+    <repository type="GitHub" url="https://github.com/Martinecko30/EngineBase" commit="0b6ddc1606b47efcf3ff51073186740acbfd701d" />
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="AssimpNet" version="4.1.0" exclude="Build,Analyzers" />
