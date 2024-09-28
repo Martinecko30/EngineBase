@@ -2,7 +2,7 @@ using OpenTK.Mathematics;
 
 namespace EngineBase.Lightning;
 
-public class Light
+public abstract class Light
 {
     public Vector3 Position = Vector3.Zero;
     public Vector3 Direction = Vector3.Zero;
@@ -13,8 +13,6 @@ public class Light
     public float Constant { get; set; }
     public float Linear { get; set; }
     public float Quadratic { get; set; }
-
-    public Light() { }
     
     public Light(Vector3 position)
     {

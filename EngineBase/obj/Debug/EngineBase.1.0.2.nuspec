@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>EngineBase</id>
+    <version>1.0.2</version>
+    <title>EngineBase</title>
+    <authors>Martinecko30</authors>
+    <licenseUrl>https://github.com/Martinecko30/EngineBase/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Martinecko30/EngineBase</projectUrl>
+    <description>Base engine classes and functions from OpenTK</description>
+    <repository type="GitHub" url="https://github.com/Martinecko30/EngineBase" commit="c17d1b696d055f8256637a5ff6307a1d494fb408" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="AssimpNet" version="4.1.0" exclude="Build,Analyzers" />
+        <dependency id="OpenTK" version="4.8.2" exclude="Build,Analyzers" />
+        <dependency id="StbImageSharp" version="2.27.14" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="F:\Programovanie\EngineBase\EngineBase\bin\Debug\net8.0\EngineBase.runtimeconfig.json" target="lib\net8.0\EngineBase.runtimeconfig.json" />
+    <file src="F:\Programovanie\EngineBase\EngineBase\bin\Debug\net8.0\EngineBase.dll" target="lib\net8.0\EngineBase.dll" />
+  </files>
+</package>

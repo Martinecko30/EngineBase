@@ -10,12 +10,26 @@
         <Authors>Martinecko30</Authors>
         <RepositoryUrl>https://github.com/Martinecko30/EngineBase</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
+        <Version>1.0.2</Version>
+        <Description>Base engine classes and functions from OpenTK</Description>
+        <PackageProjectUrl>https://github.com/Martinecko30/EngineBase</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/Martinecko30/EngineBase/blob/master/LICENSE</PackageLicenseUrl>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="AssimpNet" Version="4.1.0" />
       <PackageReference Include="OpenTK" Version="4.8.2" />
       <PackageReference Include="StbImageSharp" Version="2.27.14" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\DefaultSkyboxShader.vert" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="Resources\Shaders\DefaultSkyboxShader.vert">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

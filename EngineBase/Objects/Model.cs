@@ -1,7 +1,9 @@
-using System.Numerics;
 using Assimp;
 using EngineBase.Shaders;
 using EngineBase.Textures;
+using OpenTK.Mathematics;
+using Vector2 = System.Numerics.Vector2;
+using Vector3 = System.Numerics.Vector3;
 
 namespace EngineBase.Objects;
 
@@ -13,9 +15,12 @@ public class Model
     private Vector3 size = new Vector3(1, 1, 1);
     private List<Texture> loadedTextures = new();
     
+    private Box3 boundingBox;
+    
     public Model(string path)
     {
         LoadModel(path);
+        CalculateBoundingBox();
     }
 
     public void Draw(Shader shader)
@@ -40,6 +45,28 @@ public class Model
         directory = Path.GetDirectoryName(path);
         
         ProcessNode(scene.RootNode, scene);
+    }
+
+    private void CalculateBoundingBox()
+    {
+        boundingBox = new Box3();
+        Vector3 min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+        Vector3 max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
+        
+        foreach (Mesh mesh in meshes)
+        {
+            foreach(Vertex vertex in mesh.Vertices)
+            {
+                if(vertex.Position.X < min.X) min.X = vertex.Position.X;
+                if(vertex.Position.X > max.X) max.X = vertex.Position.X;
+                
+                if(vertex.Position.Y < min.Y) min.Y = vertex.Position.Y;
+                if(vertex.Position.Y > max.Y) max.Y = vertex.Position.Y;
+                
+                if(vertex.Position.Z < min.Z) min.Z = vertex.Position.Z;
+                if(vertex.Position.Z > max.Z) max.Z = vertex.Position.Z;
+            }
+        }
     }
 
     private void ProcessNode(Node node, Scene scene)
@@ -177,5 +204,12 @@ public class Model
         }
 
         return textures;
+    }
+
+    public Box3 GetBoundingBox()
+    {
+        if(boundingBox == null)
+            CalculateBoundingBox();
+        return boundingBox;
     }
 }

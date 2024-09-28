@@ -8,13 +8,21 @@ public class DirectLight : Light
 {
     private int depthMapFBO;
     private int depthMap;
+
+    public DirectLight(Vector3 position, Vector3 color) : base(position, color)
+    { }
+    
+    public DirectLight(Vector3 position, Vector3 color, Vector3 direction) : base(position, color, direction)
+    { }
+    
+    
     
     /// <summary>
     /// Creates Shadow Map of directional light
     /// For example: Sun
     /// </summary>
     /// <param name="resolution">The resolution of the shadow map.</param>
-    /// <returns>First int is depthMapFBO (Framebuffer) and second one is depthMap texture</returns>
+    /// <returns>First int is depthMap texture and second one is depthMapFBO (Framebuffer).</returns>
     public (int, int) CreateShadowMap(Vector2i resolution)
     {
         // Configure Depth Map
@@ -62,6 +70,6 @@ public class DirectLight : Light
         // unbind framebuffer
         GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
         
-        return (depthMapFBO, depthMap);
+        return (depthMap, depthMapFBO);
     }
 }
